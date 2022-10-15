@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\Order;
+use App\Models\Cart;
 use App\Models\Purchase;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,7 +14,7 @@ class PurchaseController extends Controller
     public function create(Request $purchuse)
     {
         if (Auth::id()) {
-            $orders = Order::all();
+            $orders = Cart::all();
             if (count($orders) == 0) {
                 Session::flash('warning', 'You have no orders');
                 return redirect()->back();

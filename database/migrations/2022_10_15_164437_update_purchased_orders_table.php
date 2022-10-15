@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-        $table->string('image')->nullable();
-
-    });
-}
+        Schema::table('purchased_orders', function (Blueprint $table) {
+            $table->string('image')->nullable();
+    
+        });
+    }
 
     /**
      * Reverse the migrations.
