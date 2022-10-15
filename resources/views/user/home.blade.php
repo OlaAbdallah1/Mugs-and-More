@@ -1,13 +1,23 @@
 @extends('layouts.user')
 @section('content')
-
-<div class="card-group ">
+@if (Session::has('warning'))
+<div class="alert alert-danger">
+    {{ Session::get('warning') }}
+</div>
+@endif
+@if (Session::has('success'))
+<div class="alert alert-success">
+    {{ Session::get('success') }}
+</div>
+@endif
+<div class="card-group ">    
     @foreach ($products as $product)
     <div class="">
         <div class="mt-3 mr-2" style="width: 14.5rem">
          <div class="card" >
             <img src="{{asset('uploads/product/').'/'.$product->image}}" class="card-img-top" style="width: 14.5rem">
             <div class="card-body">
+            
               <h5 class="card-title">{{ $product->name }}</h5>
               <textarea class="card-text mb-2" rows="2" style="word-wrap: break-word; border: none; background: inherit; color:#B95C50 " disabled>{{ $product->description }}</textarea>
 

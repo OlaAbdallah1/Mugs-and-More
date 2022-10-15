@@ -13,7 +13,16 @@
             </tr>
         </thead>
         <tbody>
-
+            @if (Session::has('warning'))
+                <div class="alert alert-danger">
+                    {{ Session::get('warning') }}
+                </div>
+            @endif
+            @if (Session::has('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
             @foreach ($orders as $order)
                 <tr>
                     <th scope="row"><img src="{{ asset('uploads/product') . '/' . $order->image }}"
@@ -48,7 +57,7 @@
     </table>
     <div class="container mx-3">
         <p class="">
-            <span class="lead fw-normal">Total: {{ $order->sum('total') }} ₪ </span>
+            <span class="lead fw-normal">Total: {{ $orders->sum('total') }} ₪ </span>
         </p>
 
         <form method="post" action="{{ url('/user/purchase') }}">
@@ -79,8 +88,8 @@
 
             <p class="lead fw-normal "> Shipping Cost
                 <span class="shipping mx-3">
-                </span>                 
-                 <input type="hidden" id="shipping_cost" name="shipping_cost" ></input>
+                </span>
+                <input type="hidden" id="shipping_cost" name="shipping_cost"></input>
 
             </p>
 
@@ -88,11 +97,11 @@
             <p class="lead fw-normal"> Total Cost
                 <span class="total mx-3">
                 </span>
-                <input type="hidden" id="total_cost" name="total_cost" ></input>
+                <input type="hidden" id="total_cost" name="total_cost"></input>
 
             </p>
             <p class="lead fw-normal">
-                <p class="message" name="message" id="message" style="color: #E8B4B8; font-weight: bold"></p>
+            <p class="message" name="message" id="message" style="color: #E8B4B8; font-weight: bold"></p>
             </p>
             <p class="">
             <p class="mb-0" style="color: #E8B4B8; font-weight: bold"> Payment when recieving </p>
@@ -106,7 +115,7 @@
         function getShippingCost() {
             selectElement = document.querySelector('#area');
             shipping = selectElement.value + ' ₪';
-            total = Number.parseInt(selectElement.value) + {{ $order->sum('total') }};
+            total = Number.parseInt(selectElement.value) + {{ $orders->sum('total') }};
             document.querySelector('.shipping').textContent = shipping;
             document.querySelector('.total').textContent = total;
             if (Number.parseInt(selectElement.value) == 20) {
@@ -119,13 +128,8 @@
                 document.querySelector('.message').textContent = "Delivery will take 10-15 days";
             }
 
-               document.getElementById("shipping_cost").setAttribute('value', selectElement.value);
-               document.getElementById("total_cost").setAttribute('value', total);
-
-            // // document.getElementById('shipping_cost').value = selectElement.value;
-            // document.getElementById("total_cost").value = total;
-
-
+            document.getElementById("shipping_cost").setAttribute('value', selectElement.value);
+            document.getElementById("total_cost").setAttribute('value', total);
 
         }
     </script>

@@ -13,8 +13,12 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
     public function home(){
+        if(Auth::id()){
         $products = Product::all();
         return view('user.home')->with('products',$products); 
+        }else{
+        return view('login');
+        }
      }
 
 }

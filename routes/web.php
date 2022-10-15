@@ -43,6 +43,9 @@ Route::prefix('/admin')->  middleware(['auth','isAdmin'])->group( function () {
      Route::post('/product/add/order/{id}',[CartController::class,'add_to_cart']);
      Route::get('/cart',[CartController::class,'cart']);
      Route::delete('/order/delete/{id}',[CartController::class,'delete_from_cart']);
+     Route::post('/clear-cart',[CartController::class,'clear_cart']);
+     Route::get('/clear-cart',[CartController::class,'clear_cart']);
+
      //Wishlist
      Route::post('/product/add/wishlist/{id}',[WishlistController::class,'add_to_wishlist']);
      Route::get('/wishlist',[WishlistController::class,'wishlist']);
@@ -50,7 +53,7 @@ Route::prefix('/admin')->  middleware(['auth','isAdmin'])->group( function () {
 
      //
      Route::post('/purchase',[PurchaseController::class,'create']);
-
+     Route::get('/purchases',[PurchaseController::class,'index']);
  });
 
 

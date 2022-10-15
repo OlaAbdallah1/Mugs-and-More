@@ -33,9 +33,12 @@ class WishlistController extends Controller
     }
     public function wishlist()
     {
+      if(Auth::id()){
         $favs = Wishlist::all();
-        //  $product = Product::select('quantity')->get();
          return view('user.wishlist')->with('favs',$favs);
+      }else{
+        return redirect('login');
+      }
     }
 
     public function delete_from_wishlist($id)

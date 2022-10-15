@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use session;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -29,7 +30,7 @@ class CartController extends Controller
        $product->save();
        $order->save();
 
-       return redirect()->back();
+       return redirect()->back()->with('success',"Product Added to the Cart");
       }
       else {
        return redirect('login');
@@ -37,17 +38,26 @@ class CartController extends Controller
     }
     public function cart()
     {
+      if(Auth::id()){
      $orders = Order::all();
-    //  $product = Product::select('quantity')->get();
      return view('user.cart')->with('orders',$orders);
+      }
+      else {
+        return redirect('login');
+       }
     }
 
     public function delete_from_cart($id)
     {
+      
      $order = Order::findOrFail($id);
-     // Storage::delete($product->image);
-     
      $order->delete();
-     return redirect('/user/cart')->with('message','Order Deleted ');
+     return redirect('/user/cart')->with('success','Order Deleted ');
+     
     }
+
+    public function clear_cart() {
+      Order::truncate();
+      return redirect('/user/cart')->with('success', 'Purchased Succesfully!');
+  }
 }

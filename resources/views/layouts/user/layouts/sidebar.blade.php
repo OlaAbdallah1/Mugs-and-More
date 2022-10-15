@@ -49,6 +49,15 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
+            <a class="nav-link" href="{{ url('user/purchases') }}">
+                <i class="fa-sharp fa-solid fa-list"></i>
+                Purchases history
+            </a>
+        </div>
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+        <!-- Heading -->
+        <div class="sidebar-heading">
             <a class="nav-link" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
