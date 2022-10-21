@@ -15,7 +15,7 @@
  <script src="{{ asset('adminD/assets/js/demo/chart-area-demo.js') }}"></script>
  <script src="{{ asset('adminD/assets/js/demo/chart-pie-demo.js') }}"></script>
  <script src="https://kit.fontawesome.com/924ef2b699.js" crossorigin="anonymous"></script>
-  @livewireScripts
+ 
 </body>
 
 </html>

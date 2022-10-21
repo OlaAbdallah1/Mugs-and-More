@@ -55,6 +55,18 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
+        'products' =>[
+            'driver' => 'local',
+            'url' => env('APP_URL').'/products',
+            'root'   => public_path() . '/products',
+            'visibility' => 'public',
+        ],
+        'details_images'=>[
+            'driver' => 'local',
+            'url' => env('APP_URL').'/products/detailsImages',
+            'root'   => public_path() . '/products/detailsImages',
+            'visibility' => 'public',
+        ],
 
     ],
 

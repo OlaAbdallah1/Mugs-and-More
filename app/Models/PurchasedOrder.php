@@ -10,15 +10,14 @@ class PurchasedOrder extends Model
     use HasFactory;
     protected $table = 'purchased_orders';
     protected $fillable = [
-        'product_name',
         'quantity',
         'price',
         'total',
         'user_id',
-        'user_name',
-        'image'
+        'product_id'
     ];
-    public function user(){
-        return $this->belongsTo(User::class); 
+  
+    public function products(){
+        return $this->hasMany(Product::class); 
     }
 }

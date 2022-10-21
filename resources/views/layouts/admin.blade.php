@@ -18,7 +18,6 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
- @include('layouts.admin.layouts.footer')
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
@@ -26,5 +25,6 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+@include('layouts.admin.layouts.footer')
 
 @include('layouts.admin.layouts.scripts')

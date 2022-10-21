@@ -49,4 +49,5 @@ class User extends Authenticatable
     public function purchased_orders(){
         return $this->hasMany(PurchasedOrder::class); 
     }
+    
 }

@@ -66,15 +66,15 @@
             <p class="lead fw-normal"> Shipping To
                 <select name="area" id="area" class="btn btn-primary mx-3">
                     <option value="20">West Bank</option>
-                    <option value="40">Jerusalem</option>
-                    <option value="70">48 Land</option>
+                    <option value="30">Jerusalem</option>
+                    <option value="50">48 Land</option>
                 </select>
                 <button type="button" class="btn" onclick="getShippingCost()"> Calculate Total </button>
             </p>
             <p class="d-flex">
                 <label for="location" class="lead fw-normal"> Postal Code </label>
                 <input class="lead form-control mx-3 @error('postal_code') is-invalid @enderror" style="width: 15%"
-                    name="postal_code" value="" placeholder="City, Village, St" type="text"> </input>
+                    name="postal_code" placeholder="City, Village, St" type="text"> </input>
 
                 <a class="mt-2" href="https://postcode.palestine.ps/" target="_blank" style="color: #67595E">Get your
                     postal code</a>
@@ -106,6 +106,7 @@
             <p class="">
             <p class="mb-0" style="color: #E8B4B8; font-weight: bold"> Payment when recieving </p>
             <button type="submit" class="btn btn-primary mb-4">Purchase Now</button>
+            
             </p>
         </form>
     </div>

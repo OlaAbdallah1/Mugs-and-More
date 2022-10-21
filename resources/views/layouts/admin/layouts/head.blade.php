@@ -10,22 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Border Utilities</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="{{ asset('adminD/assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="">
-    <link href="{{ asset('adminD/assets/vendor/fontawesome-free/css/fontawesome.min.css') }}" rel="stylesheet" type="">
-    <link href="{{ asset('adminD/assets/vendor/fontawesome-free/css/brands.min.css') }}" rel="stylesheet" type="">
-    <link href="{{ asset('adminD/assets/vendor/fontawesome-free/css/solid.min.css') }}" rel="stylesheet" type="">
-
-
-    <link rel="stylesheet" href="{{ asset('admin/assets/fontawesome-free/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/fontawesome-free/css/fontawesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/fontawesome-free/css/brands.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/fontawesome-free/css/solid.css') }}">
-
-
-
+    <title>Mugs and More</title>
 
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"

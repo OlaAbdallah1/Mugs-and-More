@@ -17,7 +17,7 @@ class UserController extends Controller
         $products = Product::all();
         return view('user.home')->with('products',$products); 
         }else{
-        return view('login');
+        return redirect('login');
         }
      }
 

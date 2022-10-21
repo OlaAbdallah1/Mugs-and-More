@@ -49,7 +49,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            <a class="nav-link" href="{{ url('user/purchases') }}">
+            <a class="nav-link" href="{{ url('user/purchase') }}">
                 <i class="fa-sharp fa-solid fa-list"></i>
                 Purchases history
             </a>
