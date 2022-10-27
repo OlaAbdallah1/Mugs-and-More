@@ -1,5 +1,12 @@
 @extends('layouts.admin')
 @section('content')
+
+
+@if (Session::has('success'))
+<div class="alert alert-success">
+    {{ Session::get('success') }}
+</div>
+@endif
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -35,6 +42,7 @@
                                 </div>
                                 <div class="col-2">
                                     <input type="file" name="image" id="image" class="form-control">
+                                   
                                 </div>
                             </div>
                         </div>
@@ -58,8 +66,13 @@
                                     <label for="price" class="col-form-label">Price </label>
                                 </div>
                                 <div class="col-2">
-                                    <input class="form-control w-15" id="price" name="price"
+                                    <input class="form-control w-15 @error('price') is-invalid @enderror" id="price" name="price"
                                         value="{{ old('price') }}">
+                                        @error('price')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -71,12 +84,13 @@
                                 <div class="col-2">
                                     <select name="category" id="category" class="form-control">
                                         <option value="glass">Glasses</option>
-                                        <option value="coffee">Coffee</option>
                                         <option value="funkey">Funkey</option>
                                         <option value="fancy">Fancy</option>
                                         <option value="cup">Cup</option>
-                                        <option value="elegant">Elegant</option>
                                         <option value="plate">Plate</option>
+                                        <option value="kettle">Kettle</option>
+                                        <option value="simple">Simple</option>
+
                                     </select>
                                 </div>
                             </div>
@@ -88,7 +102,7 @@
                                     <label for="description" class="col-form-label">Description</label>
                                 </div>
                                 <div class="col-2">
-                                    <textarea type="text" name="description" class="form-control" placeholder="description"></textarea>
+                                    <textarea name="description" class="form-control" placeholder="description"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -117,37 +131,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
-                            <div class="row align-items-center">
-                                <div class="col-1">
-                                    <label for="category" class="col-form-label">Categories</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="coffee" value="coffee">
-                                    <label class="form-check-label" for="coffee">Coffee</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="tea" value="tea">
-                                    <label class="form-check-label" for="tea">Tea</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="antique" value="antique">
-                                    <label class="form-check-label" for="antique">Antique</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="handmade" value="handmade">
-                                    <label class="form-check-label" for="handmade">Hand Made</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="colorfull" value="colorfull">
-                                    <label class="form-check-label" for="colorfull">Colorfull</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="checkbox" id="classic" value="classic">
-                                    <label class="form-check-label" for="classic">Classic</label>
-                                </div>
-                            </div>
-                        </div>
+                       
 
                         <button type="submit" class="btn btn-primary">Add Product</button>
                     </form>

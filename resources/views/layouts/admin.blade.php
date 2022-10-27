@@ -25,6 +25,6 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-@include('layouts.admin.layouts.footer')
+{{-- @include('layouts.admin.layouts.footer') --}}
 
 @include('layouts.admin.layouts.scripts')

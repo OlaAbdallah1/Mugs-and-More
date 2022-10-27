@@ -10,7 +10,7 @@
             </button>
 
             <a class="navbar-brand" href="#">
-                <img src="{{ asset('admin/assets/img/Mugs.png') }}" alt="" width="30" height="24"
+                <img src="{{ asset('user/assets/img/Mugs.png') }}" alt="" width="30" height="24"
                     class="d-inline-block align-text-top">
                 Mugs & More
             </a>
@@ -76,6 +76,10 @@
                             <i class="fa-sharp fa-solid fa-user mr-2"></i> {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" style="color: #67595E" href="{{ url('/user/purchase') }}"><i class="fa-sharp fa-solid fa-list"></i> Purchases</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" style="color: #67595E" href="#"><i
                                         class="fa-solid fa-user mr-2"></i> Profile</a></li>
                             <li>

@@ -12,9 +12,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}">
     
-    <script src="{{ asset('admin/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('user/assets/js/bootstrap.bundle.min.js') }}"></script>
 </head>
 <body>
     <div id="app">

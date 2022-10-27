@@ -9,7 +9,7 @@
         <div class="card-body">
             <form method="POST" action="{{ route('register') }}">
                 @csrf
-                <img src="{{ asset('admin/assets/img/Mugs.png') }}" style="width:160px; height: 100px; margin-left: 30px">
+                <img src="{{ asset('user/assets/img/Mugs.png') }}" style="width:160px; height: 100px; margin-left: 30px">
     
                 <div class="row mb-3">
                     <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>

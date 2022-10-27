@@ -1,4 +1,4 @@
-@extends('layouts.user')
+@extends('layouts.admin')
 @section('content')
     <table class="table table-striped">
         <thead>

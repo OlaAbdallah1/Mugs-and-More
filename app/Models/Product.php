@@ -30,8 +30,7 @@ class Product extends Model
         return $this->hasMany(Feedback::class);
     }
 
-    public function images()
-    {
+    public function images(){
      return $this->hasMany(DetailsImages::class);
     }
 }

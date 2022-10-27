@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function home(){
         if(Auth::id()){
-        $products = Product::all();
+        $products = Product::inRandomOrder()->get();
         return view('user.home')->with('products',$products); 
         }else{
         return redirect('login');

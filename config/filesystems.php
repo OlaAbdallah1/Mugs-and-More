@@ -67,6 +67,12 @@ return [
             'root'   => public_path() . '/products/detailsImages',
             'visibility' => 'public',
         ],
+        'feedbacks'=>[
+            'driver' => 'local',
+            'url' => env('APP_URL').'/products/feedbacks',
+            'root'   => public_path() . '/products/feedbacks',
+            'visibility' => 'public',
+        ],
 
     ],
 

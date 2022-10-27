@@ -37,7 +37,8 @@ class PurchaseOperationController extends Controller
     public function index() 
     {
         if (Auth::id()) {
-            $purchases = PurchaseOperation::all();
+            $user = Auth::user();
+            $purchases = PurchaseOperation::all()->where('user_id','=',$user->id);
             return view('user.purchase')->with('purchases', $purchases);
         } else {
             return redirect('login');

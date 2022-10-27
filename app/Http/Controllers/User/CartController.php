@@ -27,8 +27,7 @@ class CartController extends Controller
         'total' => $product->price * $request->quantity,
         'image' => $product->image,
       ]);
-      $product->quantity = $product->quantity - $request->quantity;
-      $product->save();
+     
       return redirect()->back()->with('success', "Product Added to the Cart");
     } else {
       return redirect('login');
@@ -50,10 +49,11 @@ class CartController extends Controller
     return redirect('/user/cart')->with('success', 'Order Deleted ');
   }
 
-  public function clear_cart(Request $request){
+  public function clear_cart($id){
     if (Auth::id()) {
       $user = auth()->user();
       // $purchased_orders = new PurchasedOrder; 
+      $product=Product::find($id);
      $carts=Cart::all();
     foreach($carts as $cart){
     PurchasedOrder::create([
@@ -63,6 +63,8 @@ class CartController extends Controller
         'quantity' => $cart->quantity,
         'total' => $cart->total,
       ]);  
+      $product->quantity = $product->quantity - $cart->quantity;
+      $product->save();
       $cart->delete();
       $cart->save();
   }

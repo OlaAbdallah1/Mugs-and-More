@@ -18,7 +18,8 @@
 
     <!-- Custom styles for this template-->
 
-    <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.min.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('user/assets/css/bootstrap.css') }}"> --}}
+    <link href="{{ asset('adminD/assets/css/sb-admin-2.css') }}" rel="stylesheet">
 
 </head>

@@ -76,38 +76,7 @@
                                     </div>
                                 </div>
                             </div>
-    
-                            <div class="mb-3">
-                                <div class="row align-items-center">
-                                    <div class="col-1">
-                                        <label for="category" class="col-form-label">Categories</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="coffee" value="coffee">
-                                        <label class="form-check-label" for="coffee">Coffee</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="tea" value="tea">
-                                        <label class="form-check-label" for="tea">Tea</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="antique" value="antique">
-                                        <label class="form-check-label" for="antique">Antique</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="handmade" value="handmade">
-                                        <label class="form-check-label" for="handmade">Hand Made</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="colorfull" value="colorfull">
-                                        <label class="form-check-label" for="colorfull">Colorfull</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="classic" value="classic">
-                                        <label class="form-check-label" for="classic">Classic</label>
-                                      </div>
-                                 </div>
-                                </div>
+  
                             <button type="submit" class="btn btn-primary">Update Product</button>
             
                 </form>
