@@ -25,7 +25,7 @@
             @endif
             @foreach ($orders as $order)
                 <tr>
-                    <th scope="row"><img src="{{ asset('uploads/product') . '/' . $order->image }}"
+                    <th scope="row"><img src="{{ asset('products/') . '/' . $order->image }}"
                             style="width: 50px; height: 50px;"></th>
                     <td>
                         <p class="mt-3">{{ $order->product_name }}</p>

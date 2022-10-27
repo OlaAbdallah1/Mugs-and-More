@@ -28,7 +28,7 @@ class PurchaseOperationController extends Controller
                     'total_cost' => $purchase['total_cost'],
                 ]);
             }
-            return redirect('/user/clear-cart');
+            return redirect("/user/clear-cart");
         } else {
             return redirect('login');
         }

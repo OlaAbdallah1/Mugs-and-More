@@ -22,6 +22,10 @@ class ProductController extends Controller
             ->get();
 
         $details_images = DetailsImage::where('product_id', '=', $id)->get();
-        return view('user.product')->with('product', $product)->with('details_images', $details_images)->with('feedbacks', $feedbacks)->with('username', $username);
+
+        $similar_products = Product::where('category','=',$product->category)->OrWhere('color','=',$product->color)->inRandomOrder()->paginate(5);
+        // and('color','=',$product->color);
+        return view('user.product')->with('product', $product)->with('details_images', $details_images)->with('feedbacks', $feedbacks)->with('username', $username)->with('similar_products',$similar_products);
+
     }
 }
