@@ -60,7 +60,7 @@ class ProductController extends Controller
     }
     public function show()
     {
-        $products = Product::all();
+        $products = Product::orderBy('id','desc')->get();
         return view('admin.product.show')->with('products', $products);
     }
 

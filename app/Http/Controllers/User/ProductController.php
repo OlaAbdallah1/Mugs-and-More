@@ -23,8 +23,7 @@ class ProductController extends Controller
 
         $details_images = DetailsImage::where('product_id', '=', $id)->get();
 
-        $similar_products = Product::where('category','=',$product->category)->OrWhere('color','=',$product->color)->inRandomOrder()->paginate(5);
-        // and('color','=',$product->color);
+        $similar_products = Product::where('category','=',$product->category)->OrWhere('color','=',$product->color)->where('id','!=',$id)->inRandomOrder()->limit(6)->get();
         return view('user.product')->with('product', $product)->with('details_images', $details_images)->with('feedbacks', $feedbacks)->with('username', $username)->with('similar_products',$similar_products);
 
     }

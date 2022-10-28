@@ -13,10 +13,10 @@ class Wishlist extends Model
     protected $fillable = [
         'user_id',
         'product_id',
-        'image',
-        'price',
-        'product_name',
-        'user_name',
-
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

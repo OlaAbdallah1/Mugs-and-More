@@ -51,43 +51,26 @@
                                         class="fa-brands fa-whatsapp mr-2"></i> WhatsApp</a></li>
                         </ul>
                     </li>
-                    <!-- Topbar Search -->
-                    <li class="nav-item mt-3">
-                        <form
-                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small "
-                                    placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-
-                    </li>
-
+                   
+                    
+                   
+                    
                     <!-- Nav Item - User Information -->
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-sharp fa-solid fa-user mr-2"></i> {{ Auth::user()->name }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" style="color: #67595E" href="{{ url('/user/purchase') }}"><i class="fa-sharp fa-solid fa-list"></i> Purchases</a></li>
+                            <li><a class="dropdown-item"  href="{{ url('/user/purchase') }}"><i class="fa-sharp fa-solid fa-list"></i> Purchases</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" style="color: #67595E" href="#"><i
-                                        class="fa-solid fa-user mr-2"></i> Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item"#67595E href="{{ route('logout') }}"
+                           
+                            <li><a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                      document.getElementById('logout-form').submit();"><i
+                                     document.getElementById('logout-form').submit();"><i
                                         class="fa-solid fa-right-from-bracket"></i>
                                     {{ __('Logout') }} </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

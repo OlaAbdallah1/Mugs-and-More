@@ -18,5 +18,7 @@ class PurchaseOperation extends Model
         'status',
         'user_id',
     ];
-  
+    public function purchases(){
+        return $this->hasMany(Purchase::class); 
+    }
 }

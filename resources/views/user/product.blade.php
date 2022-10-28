@@ -6,12 +6,12 @@
                 <div class="card-header">
                     <h3 class="card-title">{{ $product->name }}</h3>
                 </div>
-                <!-- /.card-header -->
                 <div class="card-body d-flex">
-                    <img src="{{ asset('products/') . '/' . $product->image }}" alt="">
+                    <img src="{{ asset('products/') . '/' . $product->image }}" style="height: 25rem ; width: 25rem"
+                        alt="">
                     <div class="container mx-5 mt-4">
-                        <textarea class="card-text mb-2" rows="2"
-                            style="word-wrap: break-word; border: none; background: inherit; color:#B95C50 " disabled>{{ $product->description }}</textarea>
+                        <p class="card-text mb-2" style="color: #E8B4B8; font-weight: bold">
+                            {{ $product->description }}</p>
                         <p class="mb-2"> {{ $product->price }} ₪ </p>
                         @if ($product->quantity == 0)
                             <span class="mb-2">Sold Out</span>
@@ -26,13 +26,13 @@
                                     <input type="number" value="0" class="form-control" name="quantity"
                                         style="width: 50px" disabled>
                                     <button type="submit" class="btn btn-primary mt-2" disabled><i
-                                            class="fa-sharp fa-solid fa-cart-plus"></i>
+                                            class="fa-sharp fa-solid fa-cart-plus"></i>Add to cart
                                     </button>
                                 @else
                                     <input type="number" value="1" min="1" max="{{ $product->quantity }}"
                                         class="form-control" name="quantity" style="width: 50px">
                                     <button type="submit" class="btn btn-primary m-2"><i
-                                            class="fa-sharp fa-solid fa-cart-plus"></i>
+                                            class="fa-sharp fa-solid fa-cart-plus"></i>Add to cart
                                     </button>
                                 @endif
 
@@ -40,18 +40,15 @@
                             <form method="post" action="{{ url("user/product/add/wishlist/$product->id") }}">
                                 @csrf
                                 <button type="submit" style="height: 35px" class="btn btn-primary mt-5"><i
-                                        class="fa-solid fa-heart-circle-plus"></i></button>
+                                        class="fa-solid fa-heart-circle-plus"></i>Add to wishlist</button>
                             </form>
                         </div>
 
                         <div class="card-group">
                             @foreach ($details_images as $detail_image)
-                                <div class="mt-3">
-                                    {{-- <div class="card"> --}}
-                                    <div class="card-body">
-                                        <img src="{{ asset('products/detailsImages/') . '/' . $detail_image->detail_image }}"
-                                            style="width: 10rem">
-                                    </div>
+                                <div class="mt-3 mx-1">
+                                    <img src="{{ asset('products/detailsImages/') . '/' . $detail_image->detail_image }}"
+                                        style="width:9.5rem">
                                 </div>
                             @endforeach
                         </div>
@@ -95,63 +92,65 @@
                 </div>
 
             </div>
-            
+
 
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title">Similar Products</h3>
                 </div>
-            <div class="card-group ">
-                @foreach ($similar_products as $similar_product)
-                    <div class="mt-3 mr-2" style="width: 14.34rem">
-                        <div class="card">
-                            <img src="{{ asset('products/') . '/' . $similar_product->image }}" class="card-img-top"
-                                style="width: 14.34rem">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <a href="{{ url("user/product/view/$similar_product->id") }}" style="color: #E8B4B8;">
-                                        {{ $similar_product->name }}</a>
-                                </h5>
+                <div class="card-group ">
+                    @foreach ($similar_products as $similar_product)
+                        <div class="mt-3 mr-2" style="width: 14rem">
+                            <div class="card">
+                                <img src="{{ asset('products/') . '/' . $similar_product->image }}" class="card-img-top"
+                                    style="width: 14rem">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ url("user/product/view/$similar_product->id") }}"
+                                            style="color: #E8B4B8;">
+                                            {{ $similar_product->name }}</a>
+                                    </h5>
 
-                                <p class="mb-2"> {{ $similar_product->price }} ₪ </p>
-                                @if ($similar_product->quantity == 0)
-                                    <span class="mb-2">Sold Out</span>
-                                @else
-                                    <span class="mb-2">{{ $similar_product->quantity }} pieces</span>
-                                @endif
+                                    <p class="mb-2"> {{ $similar_product->price }} ₪ </p>
+                                    @if ($similar_product->quantity == 0)
+                                        <span class="mb-2">Sold Out</span>
+                                    @else
+                                        <span class="mb-2">{{ $similar_product->quantity }} pieces</span>
+                                    @endif
 
-                                <div class="d-flex">
-                                    <form method="post" action="{{ url("user/product/add/order/$similar_product->id") }}">
-                                        @csrf
-                                        @if ($similar_product->quantity == 0)
-                                            <input type="number" value="0" class="form-control" name="quantity"
-                                                style="width: 50px" disabled>
-                                            <button type="submit" class="btn btn-primary mt-2" disabled><i
-                                                    class="fa-sharp fa-solid fa-cart-plus"></i>
-                                            </button>
-                                        @else
-                                            <input type="number" value="1" min="1"
-                                                max="{{ $similar_product->quantity }}" class="form-control"
-                                                name="quantity" style="width: 50px">
-                                            <button type="submit" class="btn btn-primary m-2"><i
-                                                    class="fa-sharp fa-solid fa-cart-plus"></i>
-                                            </button>
-                                        @endif
+                                    <div class="d-flex">
+                                        <form method="post"
+                                            action="{{ url("user/product/add/order/$similar_product->id") }}">
+                                            @csrf
+                                            @if ($similar_product->quantity == 0)
+                                                <input type="number" value="0" class="form-control" name="quantity"
+                                                    style="width: 50px" disabled>
+                                                <button type="submit" class="btn btn-primary mt-2" disabled><i
+                                                        class="fa-sharp fa-solid fa-cart-plus"></i>
+                                                </button>
+                                            @else
+                                                <input type="number" value="1" min="1"
+                                                    max="{{ $similar_product->quantity }}" class="form-control"
+                                                    name="quantity" style="width: 50px">
+                                                <button type="submit" class="btn btn-primary m-2"><i
+                                                        class="fa-sharp fa-solid fa-cart-plus"></i>
+                                                </button>
+                                            @endif
 
-                                    </form>
-                                    <form method="post"
-                                        action="{{ url("user/product/add/wishlist/$similar_product->id") }}">
-                                        @csrf
-                                        <button type="submit" style="height: 35px" class="btn btn-primary mt-5"><i
-                                                class="fa-solid fa-heart-circle-plus"></i></button>
-                                    </form>
+                                        </form>
+                                        <form method="post"
+                                            action="{{ url("user/product/add/wishlist/$similar_product->id") }}">
+                                            @csrf
+                                            <button type="submit" style="height: 35px" class="btn btn-primary mt-5"><i
+                                                    class="fa-solid fa-heart-circle-plus"></i></button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
-            {{ $similar_products->links() }}
+                    @endforeach
+                </div>
+                {{-- {{ $similar_products->links() }} --}}
             </div>
         </div>
     @endsection

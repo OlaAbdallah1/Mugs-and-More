@@ -10,7 +10,7 @@ class StatusController extends Controller
 {
     public function orders()
     {
-        $purchases = PurchaseOperation::all();
+        $purchases = PurchaseOperation::orderBy('id','desc')->get();
         return view('admin.status.purchase')->with('purchases',$purchases);
     }
     public function in_stock()

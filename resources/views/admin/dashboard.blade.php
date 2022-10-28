@@ -18,7 +18,7 @@
                           Earnings </a>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 
                       $purchased_operations->sum('total_cost')
-                      }}</div>
+                      }} ₪</div>
                   </div>
                   <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>

@@ -14,20 +14,15 @@ class WishlistController extends Controller
   {
     if (Auth::id()) {
       $user = auth()->user();
-      $product = Product::find($id);
       $fav = new Wishlist;
 
       if ($fav->get()->contains('product_id', $id)) {
         return redirect()->back()->with('warning', 'Already in Wishlist');
       } else {
-        $fav->user_name = $user->email;
         $fav->user_id = $user->id;
-        $fav->product_id = $product->id;
-        $fav->image = $product->image;
-        $fav->product_name = $product->name;
-        $fav->price = $product->price;
-
+        $fav->product_id = $id;
         $fav->save();
+    
         return redirect()->back()->with('success', 'Added to Wishlist');
       }
     } else {
@@ -37,7 +32,9 @@ class WishlistController extends Controller
   public function wishlist()
   {
     if (Auth::id()) {
-      $favs = Wishlist::all();
+       $favs = Wishlist::join('products', 'wishlists.product_id', '=', 'products.id')
+        ->select('products.*')
+        ->get();
       return view('user.wishlist')->with('favs', $favs);
     } else {
       return redirect('login');

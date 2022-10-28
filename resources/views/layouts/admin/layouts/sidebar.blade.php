@@ -5,7 +5,6 @@
   <!-- Sidebar - Brand -->
   <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
       <div class="sidebar-brand-icon rotate-n-15">
-        <img src="{{ asset('admin/assets/img/Mugs.png') }}" alt="" width="30" height="24" class="d-inline-block align-text-top">
         Mugs & More 
      
       </div>
@@ -23,8 +22,6 @@
 
   <!-- Divider -->
   <hr class="sidebar-divider">
-
- 
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item">

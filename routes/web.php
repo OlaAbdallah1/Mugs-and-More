@@ -2,6 +2,7 @@
 
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\Purchases;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\CartController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\User\CategoryController;
 use App\Http\Controllers\User\FeedbackController;
+use App\Http\Controllers\User\PurchaseController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\User\PurchasedOrderController;
@@ -42,6 +44,8 @@ Auth::routes();
 
 Route::prefix('/admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/search',[DashboardController::class,'search']);
+
 
     Route::get('/product', [ProductController::class, 'show']);
     Route::get('/product/create', [ProductController::class, 'create']);
@@ -62,6 +66,7 @@ Route::prefix('/user')->group(function () {
     Route::get('/home', [UserController::class, 'home']);
     Route::post('/home', [UserController::class, 'home']);
 
+    Route::get('/search',[UserController::class,'search']);
     //categories 
     Route::get('/home/cups', [CategoryController::class, 'cup']);
     Route::get('/home/glasses', [CategoryController::class, 'glasses']);
@@ -78,8 +83,9 @@ Route::prefix('/user')->group(function () {
     Route::post('/product/add/order/{id}', [CartController::class, 'add_to_cart']);
     Route::get('/cart', [CartController::class, 'cart']);
     Route::delete('/order/delete/{id}', [CartController::class, 'delete_from_cart']);
-    Route::post('/clear-cart/{id}', [CartController::class, 'clear_cart']);
-    Route::get('/clear-cart', [CartController::class, 'clear_cart']);
+    Route::get('/clear-cart/{id}', [CartController::class, 'clear_cart']);
+    // Route::post('/clear-cart', [CartController::class, 'clear_cart']);
+
 
     //Wishlist
     Route::post('/product/add/wishlist/{id}', [WishlistController::class, 'add_to_wishlist']);
@@ -91,7 +97,7 @@ Route::prefix('/user')->group(function () {
     Route::get('/purchase', [PurchaseOperationController::class, 'index']);
 
     //purchased orders
-    Route::get('/purchased-orders/', [PurchasedOrderController::class, 'index']);
+    Route::get('/purchases/{id}', [PurchaseController::class, 'index']);
 
     //Feedback
     Route::post('/product/feedback/{id}', [FeedbackController::class, 'create']);

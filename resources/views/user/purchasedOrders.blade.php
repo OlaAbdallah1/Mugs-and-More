@@ -8,7 +8,6 @@
                 <th scope="col">Quantity</th>
                 <th scope="col">Price</th>
                 <th scope="col">Total</th>
-                <th scope="col">purchased_order Date</th>
                 <th scope="col"></th>
             </tr>
         </thead>
@@ -25,10 +24,10 @@
             @endif
             @foreach ($purchased_orders as $purchased_order)
                 <tr>
-                    {{-- <th scope="row"><img src="{{ asset('uploads/product') . '/' . $purchased_order->image }}" --}}
-                            style="width: 50px; height: 50px;"></th>
+                    <th scope="row"><img src="{{ asset('products') . '/' . $purchased_order->image }}"
+                            style="width: 70px; height: 70px;"></th>
                     <td>
-                        <p class="mt-3">{{ $purchased_order->product_id }}</p>
+                        <p class="mt-3">{{ $purchased_order->name }}</p>
                     </td>
                     <td>
                         <p class="mt-3">{{ $purchased_order->quantity }}</p>
@@ -39,9 +38,7 @@
                     <td>
                         <p class="mt-3">{{ $purchased_order->total }} ₪</p>
                     </td>
-                    <td>
-                        <p class="mt-3">{{ $purchased_order->created_at }}</p>
-                    </td>
+                    
                     <td>
                     </td>
                 </tr>

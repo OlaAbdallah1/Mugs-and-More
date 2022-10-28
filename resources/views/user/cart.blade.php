@@ -28,7 +28,7 @@
                     <th scope="row"><img src="{{ asset('products/') . '/' . $order->image }}"
                             style="width: 50px; height: 50px;"></th>
                     <td>
-                        <p class="mt-3">{{ $order->product_name }}</p>
+                        <p class="mt-3">{{ $order->name }}</p>
                     </td>
                     <td>
                         <p class="mt-3">{{ $order->quantity }}</p>
