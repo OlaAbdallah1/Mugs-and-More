@@ -14,6 +14,7 @@ use App\Http\Controllers\User\FeedbackController;
 use App\Http\Controllers\User\PurchaseController;
 use App\Http\Controllers\User\WishlistController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PurchaseController as AdminPurchaseController;
 use App\Http\Controllers\User\PurchasedOrderController;
 use App\Http\Controllers\User\PurchaseOperationController;
 use App\Http\Controllers\User\ProductController as UserProductController;
@@ -44,8 +45,7 @@ Auth::routes();
 
 Route::prefix('/admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
-    Route::get('/search',[DashboardController::class,'search']);
-
+    Route::get('/search/product',[DashboardController::class,'search']);
 
     Route::get('/product', [ProductController::class, 'show']);
     Route::get('/product/create', [ProductController::class, 'create']);
@@ -59,6 +59,15 @@ Route::prefix('/admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/status/instock', [StatusController::class, 'in_stock']);
     Route::get('/status/outorders', [StatusController::class, 'out_orders']);
     Route::get('/status/delivered', [StatusController::class, 'delivered']);
+
+    Route::get('/purchases/{id}', [AdminPurchaseController::class, 'purchases']);
+    //mark status
+    Route::put('/order/out/{id}',[AdminPurchaseController::class,'order_out']);
+    Route::put('/order/delivered/{id}',[AdminPurchaseController::class,'order_delivered']);
+
+
+    Route::get('/search/purchase',[StatusController::class,'search']);
+
 
 });
 Route::prefix('/user')->group(function () {

@@ -20,7 +20,7 @@ class DashboardController extends Controller
     {
         if ($request->search) {
             $searchProducts = Product::where('name', 'LIKE', '%' . $request->search . '%')->OrWhere('category', 'LIKE', '%' . $request->search . '%')->latest()->get();
-            return view('admin.search')->with('searchProducts', $searchProducts);
+            return view('admin.search.product')->with('searchProducts', $searchProducts);
         } else {
             return redirect()->back()->with('message', 'Empty Search');
         }

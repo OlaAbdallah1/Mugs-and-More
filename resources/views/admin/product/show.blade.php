@@ -3,7 +3,7 @@
     <div class="row">
         <!-- Topbar Search -->
         <div class="col-6 mb-3">
-            <form action={{ url('user/search') }} method="GET" role="search"
+            <form action={{ url('user/search/product') }} method="GET" role="search"
                 class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                 <div class="input-group">
                     <input type="search" class="form-control bg-light border-0 small" placeholder="Search for products ..."
