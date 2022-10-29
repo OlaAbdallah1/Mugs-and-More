@@ -47,4 +47,11 @@ class WishlistController extends Controller
     $fav->delete();
     return redirect('/user/wishlist')->with('message', 'Deleted ');
   }
+
+  public function find_similar($id)
+  {
+    $product = Product::find($id);
+    $similar_products = Product::where('category','=',$product->category)->OrWhere('color','=',$product->color)->where('id','!=',$id)->inRandomOrder()->get();
+    return view('user.similarProduct')->with('similar_products',$similar_products);
+  }
 }

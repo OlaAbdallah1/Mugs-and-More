@@ -51,7 +51,21 @@
                                         class="fa-brands fa-whatsapp mr-2"></i> WhatsApp</a></li>
                         </ul>
                     </li>
-                   
+                    <!-- Topbar Search -->
+                    <li class="nav-item mt-3">
+                        <form action={{ url('user/search') }} method="GET" role="search" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="search" class="form-control bg-light border-0 small"
+                                    placeholder="Search for products ..." name="search" value="">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </li>
                     
                    
                     

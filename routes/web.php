@@ -65,7 +65,6 @@ Route::prefix('/admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('/order/out/{id}',[AdminPurchaseController::class,'order_out']);
     Route::put('/order/delivered/{id}',[AdminPurchaseController::class,'order_delivered']);
 
-
     Route::get('/search/purchase',[StatusController::class,'search']);
 
 
@@ -100,6 +99,7 @@ Route::prefix('/user')->group(function () {
     Route::post('/product/add/wishlist/{id}', [WishlistController::class, 'add_to_wishlist']);
     Route::get('/wishlist', [WishlistController::class, 'wishlist']);
     Route::delete('/wishlist/delete/{id}', [WishlistController::class, 'delete_from_wishlist']);
+    Route::get('/product/findsimilar/{id}', [WishlistController::class, 'find_similar']);
 
     //purchase operation 
     Route::post('/purchase', [PurchaseOperationController::class, 'create']);
