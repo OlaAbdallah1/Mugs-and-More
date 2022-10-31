@@ -14,7 +14,7 @@
     @include('user.slider')
       
     <div class="text-center">
-        <h2 class="fw-bold" style="text-transform: uppercase">Shop Now</h2>
+        <h2 class="fw-bold" style="text-transform: uppercase">{{ $category }}</h2>
     </div>
     <div class="card-group ">
         @foreach ($categories as $category)

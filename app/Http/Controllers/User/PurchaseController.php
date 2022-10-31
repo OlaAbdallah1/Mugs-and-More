@@ -14,8 +14,7 @@ class PurchaseController extends Controller
 
   public function index($id)
   {
-    if (Auth::id()) {
-      $user = Auth::user();
+    if (Auth::user()) {
       $purchased_orders = Purchase::join('purchase_operations','purchases.purchased_operation_id','=','purchase_operations.id')
       ->join('carts','purchases.cart_id','=','carts.id')
       ->join('products', 'carts.product_id', '=', 'products.id')
@@ -23,8 +22,10 @@ class PurchaseController extends Controller
       ->select(['products.name', 'products.price', 'products.image', 'carts.quantity', 'carts.total','carts.deleted_at'])
       ->where('purchases.purchased_operation_id','=',$id)
        ->get();
-      
-      return view('user.purchasedOrders')->with('purchased_orders', $purchased_orders);
+
+       $purchase_operation = PurchaseOperation::findOrFail($id);
+       $status= $purchase_operation->status;
+      return view('user.purchasedOrders')->with('purchased_orders', $purchased_orders)->with('status',$status);
     } else {
       return redirect('login');
     }

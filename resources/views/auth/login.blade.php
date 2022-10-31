@@ -26,20 +26,11 @@ Login
                 </span>
             @enderror
             </div>
-            <div class="d-flex justify-content-between align-items-center">
-                <!-- Checkbox -->
-                <div class="form-check mb-0">
-                <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                <label class="form-check-label" for="form2Example3">
-                    Remember me
-                </label>
-                </div>
-            </div>
-    
+            
             <div class="text-center pt-1 mb-5 pb-1">
                 <button class="btn btn-inline-danger btn-block fa-lg gradient-custom-2 mb-3 mt-2" type="submit">Log
                     in</button>
-                <a class="text-muted" href="#!">Forgot password?</a>
+                  
                 </div>
         </form>
                 <div class="d-flex align-items-center justify-content-center pb-4">

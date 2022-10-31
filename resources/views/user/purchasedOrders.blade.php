@@ -38,7 +38,7 @@
                     <td>
                         <p class="mt-3">{{ $purchased_order->total }} ₪</p>
                     </td>
-                    
+
                     <td>
                     </td>
                 </tr>
@@ -50,6 +50,14 @@
         <p class="">
             <span class="lead fw-normal">Total: {{ $purchased_orders->sum('total') }} ₪ </span>
         </p>
-        </div>
-    
+
+        @if ( $status == '0')
+            <div>Your Order Still in stock</div>
+        @elseif ( $status == '1')
+            <div>Your Order out to be delivered</div>
+        @elseif ( $status == '2')
+           <div>Your Order delivered</div>
+        @endif
+
+    </div>
 @endsection

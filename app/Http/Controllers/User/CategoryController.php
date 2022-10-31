@@ -11,38 +11,45 @@ class CategoryController extends Controller
    public function cup()
    {
     $categories = Product::where('category', '=', 'cup')->get();
-    return view('user.category')->with('categories', $categories);
+    $category = 'Cups';
+    return view('user.category')->with('categories', $categories)->with('category', $category);
    } 
    public function glasses()
    {
     $categories = Product::where('category', '=', 'glass')->get();
-    return view('user.category')->with('categories', $categories);
+    $category = 'Glasses';
+    return view('user.category')->with('categories', $categories)->with('category', $category);
    } 
    public function funkey()
    {
     $categories = Product::where('category', '=', 'funkey')->get();
-    return view('user.category')->with('categories', $categories);
+    $category = 'Funkey Mugs';
+    return view('user.category')->with('categories', $categories)->with('category', $category);
    } 
    public function fancy()
    {
     $categories = Product::where('category', '=', 'fancy')->get();
-    return view('user.category')->with('categories', $categories);
+    $category = 'Fancy';
+    return view('user.category')->with('categories', $categories)->with('category', $category);
    } 
   
    public function plate()
    {
     $categories = Product::where('category', '=', 'plate')->get();
-    return view('user.category')->with('categories', $categories);
+    $category = 'Plates';
+    return view('user.category')->with('categories', $categories)->with('category', $category);
    } 
    public function kettle()
    {
     $categories= Product::where('category', '=', 'kettle')->get();
-    return view('user.category')->with('categories', $categories);
+    $category = 'Teapots';
+    return view('user.category')->with('categories', $categories)->with('category', $category);
    } 
    public function simple()
    {
     $categories= Product::where('category', '=', 'simple')->get();
-    return view('user.category')->with('categories', $categories);
+    $category = 'Simple & Elegant';
+    return view('user.category')->with('categories', $categories)->with('category', $category);
    } 
 
  
