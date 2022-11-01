@@ -28,7 +28,7 @@
                                 <label for="image" class="col-form-label">Image</label>
                               </div>
                               <div class="col-2">
-                                <img src="{{asset('uploads/product/').'/'.$product->image}}" class="card-img-top" style="width: 8rem">
+                                <img src="{{asset('products/').'/'.$product->image}}" class="card-img-top" style="width: 8rem">
                                 <input type="file" name="image" id="image" class="form-control">
                               </div>
                            </div>
@@ -44,6 +44,25 @@
                                 </div>
                             </div>
                                </div> 
+                               <div class="mb-3">
+                                <div class="row align-items-center">
+                                    <div class="col-1">
+                                        <label for="category" class="col-form-label">Category </label>
+                                    </div>
+                                    <div class="col-2">
+                                        <select name="category" id="category" class="form-control">
+                                            <option value="glass">Glasses</option>
+                                            <option value="funkey">Funkey</option>
+                                            <option value="fancy">Fancy</option>
+                                            <option value="cup">Cup</option>
+                                            <option value="plate">Plate</option>
+                                            <option value="kettle">Kettle</option>
+                                            <option value="simple">Simple</option>
+    
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                            <div class="mb-3">
                             <div class="row align-items-center">
                                 <div class="col-1">

@@ -38,55 +38,49 @@
                 </form>
             </div>
         </div>
-
-    </div>
-    <span style="font-weight: 900; font-size: 2em">Orders</span>
+       
+    </div> 
+    <span style="font-weight: 900; font-size: 2em">Earnings</span> 
     <table class="table table-striped">
         <thead>
             <tr>
-                <th></th>
-                <th scope="col">Area</th>
-                <th scope="col">Postal Code</th>
-                <th scope="col">Shipping cost</th>
-                <th scope="col">Total Cost</th>
-                <th scope="col">Purchased Date</th>
-                <th scope="col"></th>
-                <th></th>
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Product</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col">Order Date</th>
+
+            </tr>
             </tr>
         </thead>
         <tbody>
-
-            @foreach ($purchases as $purchase)
+            @foreach ($orders as $order)
                 <tr>
                     <td>
-                        <p class="mt-3" style="font-weight: 900"> . </p>
+                        <p class="mt-3">{{ $order->user_id }}</p>
                     </td>
                     <td>
-                        @if ($purchase->area == 20)
-                            <p class="mt-3">West Bank </p>
-                        @elseif ($purchase->area == 30)
-                            <p class="mt-3">Jerusalem </p>
-                        @elseif ($purchase->area == 50)
-                            <p class="mt-3">48 Land </p>
-                        @endif
-
+                        <img src="{{ asset("products/$order->image") }}" alt=""  style="width: 50px; height: 50px;">
                     </td>
                     <td>
-                        <p class="mt-3">{{ $purchase->postal_code }}</p>
+                        <p class="mt-3">{{ $order->name }} ₪</p>
                     </td>
                     <td>
-                        <p class="mt-3">{{ $purchase->shipping_cost }} ₪</p>
+                        <p class="mt-3">{{ $order->price }} </p>
                     </td>
                     <td>
-                        <p class="mt-3">{{ $purchase->total_cost }} </p>
+                        <p class="mt-3">{{ $order->quantity }} </p>
                     </td>
                     <td>
-                        <p class="mt-3">{{ $purchase->created_at }}</p>
+                        <p class="mt-3">{{ $order->total }} </p>
                     </td>
                     <td>
-                        <a href="{{ url("/admin/purchases/$purchase->id") }}" class="btn mt-2" style="color: #E8B4B8;">View
-                            details</a>
+                        <p class="mt-3">{{ $order->deleted_at }}</p>
                     </td>
+                    
                 </tr>
             @endforeach
         </tbody>

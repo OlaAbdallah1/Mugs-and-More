@@ -1,5 +1,8 @@
 @extends('layouts.admin')
 @section('content')
+
+<span style="font-weight: 900; font-size: 2em">All Orders</span> 
+
     <table class="table table-striped">
         <thead>
             <tr>

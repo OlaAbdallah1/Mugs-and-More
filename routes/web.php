@@ -55,6 +55,7 @@ Route::prefix('/admin')->middleware(['auth', 'isAdmin'])->group(function () {
     Route::delete('/product/delete/{id}', [ProductController::class, 'delete']);
 
     //Status
+    Route::get('/earnings',[StatusController::class, 'earnings']);
     Route::get('/orders', [StatusController::class, 'orders']);
     Route::get('/status/instock', [StatusController::class, 'in_stock']);
     Route::get('/status/outorders', [StatusController::class, 'out_orders']);
@@ -86,6 +87,8 @@ Route::prefix('/user')->group(function () {
 
     //product details 
     Route::get('/product/view/{id}', [UserProductController::class, 'view']);
+    Route::delete('/feedback/delete/{id}',[FeedbackController::class,'delete']);
+   
 
     //Cart
     Route::post('/product/add/order/{id}', [CartController::class, 'add_to_cart']);

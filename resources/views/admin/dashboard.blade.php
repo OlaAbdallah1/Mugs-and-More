@@ -14,7 +14,7 @@
           <div class="card-body">
               <div class="row no-gutters align-items-center">
                   <div class="col mr-2">
-                    <a href="#" class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                    <a href="{{ url('admin/earnings') }}" class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                           Earnings </a>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">{{ 
                       $purchased_operations->sum('total_cost')

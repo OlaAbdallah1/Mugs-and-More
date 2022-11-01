@@ -1,5 +1,15 @@
 @extends('layouts.user')
 @section('content')
+@if (Session::has('warning'))
+<div class="alert alert-danger">
+    {{ Session::get('warning') }}
+</div>
+@endif
+@if (Session::has('success'))
+<div class="alert alert-success">
+    {{ Session::get('success') }}
+</div>
+@endif
     <div class="row ">
         <div class="col-md-12">
             <div class="card">
@@ -57,6 +67,33 @@
                 <div class="section mx-3 w-50">
                     <div class="comment-wrapper">
                         <div class="panel panel-info">
+                            <hr>
+
+                            <ul class="media-list">
+                                @foreach ($feedbacks as $feedback)
+                                    <li class="media">
+                                        <div class="media-body">
+                                            <span class="text-muted pull-right">
+                                                <small class="text-muted">{{ $feedback->created_at }}</small>
+                                            </span>
+                                            <strong class="text-success">{{ $feedback->name }}</strong>
+                                            <p>
+                                                {{ $feedback->body }}
+                                            </p>
+                                            <img class="w-25 mb-3"
+                                                src="{{ asset("products/feedbacks/$feedback->image")}}"
+                                                alt="">
+                                        </div>
+                                        <form method="post" action="{{ url("user/feedback/delete/$feedback->id") }}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn mt-2"> <i class="fa-sharp fa-solid fa-trash"></i>
+                                                </i></button>
+                                        </form>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <hr>
                             <div class="panel-body">
                                 <form action="{{ url("/user/product/feedback/$product->id") }}" method="POST">
                                     @csrf
@@ -66,26 +103,8 @@
                                     <button type="submit" class="btn btn-primary mt-3">Add</button>
                                 </form>
 
-                                <hr>
-                                <ul class="media-list">
-                                    @foreach ($feedbacks as $feedback)
-                                        <li class="media">
-                                            <div class="media-body">
-                                                <span class="text-muted pull-right">
-                                                    <small class="text-muted">{{ $feedback->created_at }}</small>
-                                                </span>
-                                                <strong class="text-success">{{ $username }}</strong>
-                                                <p>
-                                                    {{ $feedback->body }}
-                                                </p>
-                                                <img class="w-25 mb-3"
-                                                    src="{{ asset('products/feedbacks/') . '/' . $feedback->image }}"
-                                                    alt="">
-                                            </div>
-                                        </li>
-                                    @endforeach
-
-                                </ul>
+                                
+                               
                             </div>
                         </div>
                     </div>

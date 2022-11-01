@@ -1,5 +1,23 @@
 @extends('layouts.admin')
 @section('content')
+
+{{-- Search --}}
+<div class="col-6 mb-3">
+        <form action={{ url('admin/search/product') }} method="GET" role="search"
+            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+                <input type="search" class="form-control bg-light border-0 small" placeholder="Search for products ..."
+                    name="search">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search fa-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
     <table class="table table-striped">
         <thead>
             <tr>

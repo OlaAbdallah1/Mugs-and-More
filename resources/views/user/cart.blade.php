@@ -74,7 +74,7 @@
             <p class="d-flex">
                 <label for="location" class="lead fw-normal"> Postal Code </label>
                 <input class="lead form-control mx-3 @error('postal_code') is-invalid @enderror" style="width: 15%"
-                    name="postal_code" placeholder="City, Village, St" type="text"> </input>
+                    name="postal_code" placeholder="Postal Code" type="text"> </input>
 
                 <a class="mt-2" href="https://postcode.palestine.ps/" target="_blank" style="color: #67595E">Get your
                     postal code</a>
@@ -122,10 +122,10 @@
             if (Number.parseInt(selectElement.value) == 20) {
                 document.querySelector('.message').textContent = "Delivery will take 2-5 days";
             }
-            if (Number.parseInt(selectElement.value) == 40) {
+            if (Number.parseInt(selectElement.value) == 30) {
                 document.querySelector('.message').textContent = "Delivery will take 7-10 days";
             }
-            if (Number.parseInt(selectElement.value) == 70) {
+            if (Number.parseInt(selectElement.value) == 50) {
                 document.querySelector('.message').textContent = "Delivery will take 10-15 days";
             }
 

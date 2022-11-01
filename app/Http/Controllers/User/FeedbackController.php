@@ -14,21 +14,21 @@ class FeedbackController extends Controller
         if ($request->hasFile('image')) {
             $image =  $request->file('image');
             $filename = $image->store('', ['disk' => 'feedbacks']);
-            $validatedData['image'] = $filename;
+            $request['image'] = $filename;
         }
-        $feedback=new Feedback;
-        $feedback->user_id=Auth::user()->id;
+        $feedback = new Feedback;
+        $feedback->user_id = Auth::user()->id;
         $feedback->product_id = $id;
         $feedback->body = $request['feedback'];
         $feedback->image = $request['image'];
         $feedback->save();
-        // Feedback::create([
-        //     'user_id' => Auth::user()->id,
-        //     'product_id' => $id,
-        //     'body' => $request['feedback'],
-        //     'image' => $request['image']
-        // ]);
+
         return redirect()->back()->with('success', "Feedback Added");
     }
-    
+    public function delete($id)
+    {
+        $feedback = Feedback::findOrFail($id);
+        $feedback->delete();
+        return redirect()->back()->with('success', 'Feedback Deleted ');
+    }
 }
