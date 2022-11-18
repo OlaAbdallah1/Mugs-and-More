@@ -100,7 +100,7 @@
                                     <textarea class="form-control" placeholder="Add your Feedback..." rows="3" name="feedback"></textarea>
                                     <br>
                                     <input type="file" name="image" id="image" class="form-control">
-                                    <button type="submit" class="btn btn-primary mt-3">Add</button>
+                                    <button type="submit" class="btn btn-primary my-3">Add</button>
                                 </form>
 
                                 

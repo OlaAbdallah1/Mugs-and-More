@@ -22,7 +22,7 @@ class ProductController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required | string',
-            'price' => 'required',
+            'price' => 'required | decimal',
             'description' => 'nullable|string',
             'image' => 'nullable | image | mimes:png,jpg,jpeg',
             'category' => 'nullable | string',
@@ -60,7 +60,7 @@ class ProductController extends Controller
     }
     public function show()
     {
-        $products = Product::orderBy('id','desc')->get();
+        $products = Product::orderBy('id', 'desc')->get();
         return view('admin.product.show')->with('products', $products);
     }
 
@@ -73,7 +73,6 @@ class ProductController extends Controller
     public function delete($id)
     {
         $product = Product::findOrFail($id);
-        // Storage::delete($product->image);
         $product->delete();
         return redirect('/admin/product')->with('message', 'Product Deleted ');
     }

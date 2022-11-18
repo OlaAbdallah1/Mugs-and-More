@@ -19,7 +19,7 @@ Login
                     @enderror
                     </div>
             <div class="form-outline mb-4">
-                <input name="password" type="password" class="form-control"  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password"/>
+                <input name="password" type="password" class="form-control  @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password"/>
                 @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
